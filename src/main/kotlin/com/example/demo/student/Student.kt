@@ -1,14 +1,35 @@
 package com.example.demo.student
 
+import javax.persistence.*
 
+@Entity
+@Table
 class Student {
+    @Id
+    @SequenceGenerator(
+        name = "student_sequence",
+        sequenceName = "student_sequence",
+        allocationSize = 1
+    )
+    @GeneratedValue(
+        generator = "student_sequence",
+        strategy = GenerationType.SEQUENCE
+    )
     var id: Long? = null
     var name: String? = null
     var email: String? = null
+    @Enumerated(EnumType.STRING)
     var gender: Gender? = null
 
     constructor()
     constructor(id: Long?, name: String?, email: String?, gender: Gender?) {
+        this.id = id
+        this.name = name
+        this.email = email
+        this.gender = gender
+    }
+
+    constructor(name: String?, email: String?, gender: Gender?) {
         this.id = id
         this.name = name
         this.email = email

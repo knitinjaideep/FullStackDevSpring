@@ -1,5 +1,6 @@
 package com.example.demo.student
 
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
@@ -12,6 +13,6 @@ class StudentController
     fun getStudents(): List<Student>
     {
         return listOf(Student(1L,"Nitin","nitin.k@gmail.com", Gender.MALE),
-                      Student(2L,"Alex","Alex.M@gmail.com", Gender.MALE))
+            Student(2L,"Alex","Alex.M@gmail.com", Gender.MALE))
     }
 }
